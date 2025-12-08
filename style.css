@@ -24,44 +24,33 @@ nav a {
 }
 
 .hero {
-    background-image: url("COLOQUE_AQUI_SUA_IMAGEM");
+    /* ===== IMAGEM DE BACKGROUND ===== */
+    background-image: url("img/download.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 
+    /* ===== ESTILO DO CONTAINER ===== */
     padding: 80px 60px;
-    border-radius: 20px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 40px;
 
     position: relative;
     overflow: hidden;
 
+    /* ===== ANIMAÇÃO ===== */
     opacity: 0;
     transform: translateY(40px);
-    transition: .9s;
+    transition: opacity .9s, transform .9s;
 }
 
-/* Vidro fosco claro iluminado */
-.hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-
-    /* vidro mais claro e brilhante */
-    background: rgba(255, 255, 255, 0.35);
-
-    /* blur mais forte para o brilho */
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-
-    /* highlight suave */
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.4) inset,
-                0 0 40px rgba(255, 255, 255, 0.3);
-
-    border-radius: inherit;
+/* Ativa a animação */
+.hero.animate {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Conteúdo acima do vidro */
