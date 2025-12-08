@@ -1,0 +1,128 @@
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI & UX Designer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="animate">
+        <div class="logo">
+            <img src="img/NexusIconWhite.png" alt="" class="logo">
+        </div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Sobre</a>
+            <a href="#">Serviços</a>
+            <a href="#">Projetos</a>
+            <a href="#">Contato</a>
+        </nav>
+    </header>
+
+
+    <section class="hero animate">
+        <div>
+            <h3>Olá, somos Nexus</h3>
+            <h1>Empresa líder no ramo de<br>Tecnologias e Marketing Digital</h1>
+            <p>Responsábilidade e confiança para seu negócio! </p>
+            <a class="btn" href="#">Contate-nos</a>
+        </div>
+        <img src="https://via.placeholder.com/250" alt="Foto Designer">
+    </section>
+
+
+    <h2 class="animate">About Me</h2>
+    <section class="section animate">
+        <img src="https://via.placeholder.com/200" style="border-radius:50%">
+        <p>Sou um designer focado em experiência, interfaces intuitivas e projetos que
+            conectam marcas com pessoas.</p>
+    </section>
+
+
+    <h2 class="animate">Services</h2>
+    <section class="section animate">
+        <div class="services">
+            <div class="card">
+                <h3>UI/UX</h3>
+                <p>Design moderno e funcional.</p>
+            </div>
+            <div class="card">
+                <h3>Web Design</h3>
+                <p>Layouts profissionais.</p>
+            </div>
+            <div class="card">
+                <h3>App Design</h3>
+                <p>Interfaces mobile.</p>
+            </div>
+            <div class="card">
+                <h3>Graphic Design</h3>
+                <p>Artes e identidades visuais.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <h2 class="animate">My Projects</h2>
+    <section class="section animate projects">
+        <div class="projects-list">
+            <div class="card"><img src="https://via.placeholder.com/200x250">
+                <p>Landing Page</p>
+            </div>
+            <div class="card"><img src="https://via.placeholder.com/200x250">
+                <p>Business Dashboard</p>
+            </div>
+            <div class="card"><img src="https://via.placeholder.com/200x250">
+                <p>App UI Design</p>
+            </div>
+        </div>
+    </section>
+
+
+    <h2 class="animate">Testimonials</h2>
+    <section class="section animate">
+        <div class="testimonial-box">
+            <p>“Trabalho excelente, comunicação clara e resultados acima do esperado.”</p>
+            <strong>- Cliente Satisfeito</strong>
+        </div>
+    </section>
+
+
+    <section class="section animate">
+        <h2>Vamos Trabalhar Juntos</h2>
+        <input type="email" placeholder="Seu email" style="padding:10px;width:250px">
+        <a class="btn" href="#">Enviar</a>
+    </section>
+
+
+    <footer class="animate">
+        © 2025 Fawziul — Todos os direitos reservados.
+    </footer>
+
+
+    <script>
+        const elements = document.querySelectorAll('.animate, .card, .testimonial-box');
+
+
+        function revealOnScroll() {
+            const trigger = window.innerHeight * 0.85;
+
+
+            elements.forEach(el => {
+                const top = el.getBoundingClientRect().top;
+                if (top < trigger) {
+                    el.classList.add('show');
+                }
+            });
+        }
+
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+    </script>
+
+
+</body>
+
+</html>
