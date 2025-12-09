@@ -3,8 +3,12 @@ body {
     font-family: Arial;
     background: #000000;
     color: #ffffff;
-    overflow-x: hidden
+    overflow-x: hidden;
 }
+
+/* ============================== */
+/*            HEADER              */
+/* ============================== */
 
 header {
     display: flex;
@@ -13,24 +17,32 @@ header {
     padding: 20px 60px;
     opacity: 0;
     transform: translateY(-20px);
-    transition: .8s
+    transition: .8s;
 }
 
 nav a {
     margin: 0 10px;
     text-decoration: none;
     color: #ffffff;
-    font-weight: 600
+    font-weight: 600;
+    display: inline-block;
+    transition: .3s;
 }
 
+nav a:hover {
+    animation: jump .6s ease;
+}
+
+/* ============================== */
+/*             HERO               */
+/* ============================== */
+
 .hero {
-    /* ===== IMAGEM DE BACKGROUND ===== */
     background-image: url("img/download.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 
-    /* ===== ESTILO DO CONTAINER ===== */
     padding: 80px 60px;
 
     display: flex;
@@ -41,10 +53,12 @@ nav a {
     position: relative;
     overflow: hidden;
 
-    /* ===== ANIMAÇÃO ===== */
     opacity: 0;
     transform: translateY(40px);
     transition: opacity .9s, transform .9s;
+
+    /* Fundo escuro para o texto ter contraste */
+    background-color: rgba(0,0,0,0.4);
 }
 
 /* Ativa a animação */
@@ -53,7 +67,6 @@ nav a {
     transform: translateY(0);
 }
 
-/* Conteúdo acima do vidro */
 .hero > * {
     position: relative;
     z-index: 2;
@@ -62,12 +75,17 @@ nav a {
 .hero img {
     width: 220px;
     border-radius: 50%;
-    transition: .5s
+    transition: .5s;
+    border: 4px solid rgba(255,255,255,0.5);
 }
 
 .hero img:hover {
-    transform: scale(1.05)
+    transform: scale(1.05);
 }
+
+/* ============================== */
+/*         BOTOES & TITULOS       */
+/* ============================== */
 
 .btn {
     background: #ffffff;
@@ -76,26 +94,30 @@ nav a {
     border-radius: 6px;
     text-decoration: none;
     font-weight: bold;
-    transition: .3s
+    transition: .3s;
 }
 
 .btn:hover {
-    opacity: .8
+    background: #e5e5e5;
 }
 
 h2 {
     margin-top: 40px;
     text-align: center;
     opacity: 0;
-    transition: .8s
+    transition: .8s;
 }
+
+/* ============================== */
+/*           SECTIONS             */
+/* ============================== */
 
 .section {
     padding: 40px 60px;
     text-align: center;
     opacity: 0;
     transform: translateY(40px);
-    transition: .8s
+    transition: .8s;
 }
 
 .services,
@@ -104,61 +126,213 @@ h2 {
     justify-content: center;
     gap: 20px;
     margin-top: 20px;
-    flex-wrap: wrap
+    flex-wrap: wrap;
 }
 
+/* ============================== */
+/*             CARDS              */
+/* ============================== */
+
 .card {
-    border: 1px solid #eee;
     border-radius: 10px;
     padding: 20px;
     width: 180px;
-    box-shadow: 0 0 10px #eee;
+    background: #111; /* era muito branco */
+    box-shadow: 0 0 15px rgba(255,255,255,0.1);
     transition: .4s;
     opacity: 0;
-    transform: translateY(40px)
+    transform: translateY(40px);
+    color: #eee;
 }
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 15px #ddd
+    box-shadow: 0 6px 20px rgba(255,255,255,0.15);
 }
 
 .projects img {
     width: 200px;
     border-radius: 10px;
-    transition: .3s
+    transition: .3s;
 }
 
 .projects img:hover {
-    transform: scale(1.03)
+    transform: scale(1.03);
 }
+
+/* ============================== */
+/*          DEPOIMENTO            */
+/* ============================== */
 
 .testimonial-box {
     max-width: 600px;
     margin: auto;
-    border: 1px solid #eee;
-    padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px #eee;
+    padding: 20px;
+    background: #111;
+    box-shadow: 0 0 20px rgba(255,255,255,0.1);
     opacity: 0;
     transform: translateY(40px);
-    transition: .8s
+    transition: .8s;
+    color: #ddd;
 }
+
+/* ============================== */
+/*            FOOTER              */
+/* ============================== */
 
 footer {
     text-align: center;
     padding: 30px 0;
     margin-top: 50px;
-    border-top: 1px solid #eee;
+    border-top: 1px solid #333;
     font-size: 14px;
-    color: #777;
+    color: #aaa;
     opacity: 0;
-    transition: .8s
+    transition: .8s;
 }
 
 .show {
     opacity: 1 !important;
-    transform: translateY(0) !important
+    transform: translateY(0) !important;
+}
+
+/* ============================== */
+/*         SOBRE A EMPRESA        */
+/* ============================== */
+
+.about-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 60px 40px;
+}
+
+.about-img img {
+    width: 420px;
+    height: auto;
+    border-radius: 20px;
+    object-fit: cover;
+    box-shadow: 0 4px 20px rgba(255,255,255,0.1);
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h3 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.about-text p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: #ccc;
+}
+
+/* ============================== */
+/*       CONTATO (FORM)           */
+/* ============================== */
+
+.contato-section {
+    padding: 60px;
+    background: #111;
+    border-radius: 15px;
+    margin-top: 80px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.08);
+}
+
+.contato-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.form-contato {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-contato input,
+.form-contato textarea {
+    padding: 12px;
+    border: 1px solid #444;
+    border-radius: 10px;
+    font-size: 1rem;
+    background: #000;
+    color: #fff;
+}
+
+.form-contato button {
+    padding: 12px;
+    background: #ffffff;
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .3s;
+    font-weight: bold;
+}
+
+.form-contato button:hover {
+    background: #e5e5e5;
+}
+
+/* ============================== */
+/*         TABELA DE PREÇOS       */
+/* ============================== */
+
+.precos-section {
+    padding: 60px;
+    margin-top: 80px;
+}
+
+.precos-section h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.cards-precos {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card-preco {
+    background: #111;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(255,255,255,.08);
+    width: 280px;
+    color: #fff;
+}
+
+.card-preco h3 {
+    margin-bottom: 10px;
+}
+
+.card-preco span {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #4cd38a;
+}
+
+/* ============================== */
+/*        ANIMAÇÃO DO MENU        */
+/* ============================== */
+
+@keyframes jump {
+    0%   { transform: translateY(0); }
+    30%  { transform: translateY(-6px); }
+    50%  { transform: translateY(0); }
+    70%  { transform: translateY(-3px); }
+    100% { transform: translateY(0); }
 }
 
 .logo {
