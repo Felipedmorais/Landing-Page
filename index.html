@@ -5,63 +5,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UI & UX Designer</title>
     <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
+
 </head>
 
 <body>
+    <div class="loader">
+    <img src="img/NexusIconWhite.png" alt="Nexus Loader">
+</div>
+
     <header class="animate">
         <div class="logo">
             <img src="img/NexusIconWhite.png" alt="" class="logo">
         </div>
         <nav>
     <a href="#servicos">Serviços</a>
-    <a href="#precos">Preços</a>
     <a href="contato.html">Contato</a>
 </nav>
 
     </header>
 
 
-   <section class="hero animate">
+<section class="hero animate">
     <div class="hero-content">
-        <h3>Olá, somos Nexus</h3>
-        <h1>Empresa líder no ramo de<br>Tecnologias e Marketing Digital</h1>
-        <p>Responsabilidade e confiança para seu negócio!</p>
-        <a class="btn" href="contato.html">Contate-nos</a>
+        <h3>Olá, somos a Nexus</h3>
+        <h1>
+            Transformamos ideias em<br>
+            <span>resultados digitais reais</span>
+        </h1>
+        <p>
+            Design, tecnologia e marketing estratégico para
+            empresas que querem crescer de verdade.
+        </p>
+        <a href="#" class="btn-hero">Contate-nos</a>
     </div>
 
-    <img src="img/NexusIconWhite.png" alt="Foto Designer">
-
-    
-
-
+    <div class="hero-image">
+        <img src="img/NexusIconWhite.png" alt="Equipe Nexus">
+    </div>
 </section>
+
 
 
 <h2 class="animate">Serviços</h2>
 <section class="section animate">
     <div class="services">
 
-        <div class="card">
-            <h3>Social Media</h3>
-            <p>O melhor do tráfego orgânico para seu negócio</p>
-        </div>
-
-        <div class="card">
-            <h3>Web Development</h3>
-            <p>Sites que ajudaram você a triplicar suas vendas!</p>
-        </div>
-
-        <div class="card">
-            <h3>Instalação de equipamentos</h3>
-            <p>Os melhores e mais avançados equipamentos para sua jornada de trabalho</p>
-        </div>
-
-        <div class="card">
-            <h3>Graphic Design</h3>
-            <p>Uma identidade visual para que sua empresa sempre seja lembrada!</p>
-        </div>
-
+    <div class="card animate">
+        <div class="card-icon"><img src="img/Browser stats-bro.svg" alt=""></div>
+        <h3>Marketing Digital</h3>
+        <p>Estratégias inteligentes para atrair, engajar e converter clientes.</p>
     </div>
+
+    <div class="card animate">
+        <div class="card-icon"><img src="img/Designer-bro.svg" alt=""></div>
+        <h3>UI / UX Design</h3>
+        <p>Experiências visuais que encantam e aumentam conversões.</p>
+    </div>
+
+    <div class="card animate">
+        <div class="card-icon"><img src="img/Development-bro.svg" alt=""></div>
+        <h3>Desenvolvimento</h3>
+        <p>Sites e sistemas rápidos, modernos e escaláveis.</p>
+    </div>
+
+    <div class="card animate">
+        <div class="card-icon"><img src="img/Analytics-pana.svg" alt=""></div>
+        <h3>Resultados Reais</h3>
+        <p>Decisões baseadas em dados e performance comprovada.</p>
+    </div>
+
+</div>
+
 </section>
 
     </div>
@@ -154,7 +174,7 @@
         <!-- IMAGEM - DIREITA -->
         <div class="results-image">
             <!-- 🔴 TROQUE A IMAGEM AQUI -->
-            <img src="investment-data-animate.svg" alt="Resultados e Crescimento Nexus">
+            <img src="img/investment-data-animate.svg" alt="Resultados e Crescimento Nexus">
         </div>
 
     </div>
@@ -260,29 +280,43 @@
 
 </footer>
 
-
-
-
-
 <script>
-    const elements = document.querySelectorAll('.animate, .card, .testimonial-box');
-
-    function revealOnScroll() {
-        const trigger = window.innerHeight * 0.85;
-
-        elements.forEach(el => {
-            const top = el.getBoundingClientRect().top;
-            if (top < trigger) {
-                el.classList.add('show');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+                observer.unobserve(entry.target); // anima uma única vez
             }
         });
-    }
+    }, {
+        threshold: 0.15
+    });
 
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll();
+    document.querySelectorAll('.animate, .card, .testimonial-box')
+        .forEach(el => observer.observe(el));
 </script>
+<script>
+    window.addEventListener('load', () => {
+        const loader = document.querySelector('.loader');
 
+        setTimeout(() => {
+            loader.classList.add('hide');
+            document.body.style.overflow = 'auto';
+        }, 800);
+    });
 
+    // trava scroll enquanto carrega
+    document.body.style.overflow = 'hidden';
+</script>
+<script>
+document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--x', `${e.clientX - rect.left}px`);
+        card.style.setProperty('--y', `${e.clientY - rect.top}px`);
+    });
+});
+</script>
 
 </body>
 
